@@ -43,6 +43,7 @@ code {
   color: #a5a5a5;
   border-bottom: 1px solid #cbcbcb;
   margin-top: 15px;
+  text-align: left;
 }
 .style-select {
   background-color: #232323;
@@ -59,7 +60,7 @@ code {
   border: 0;
 }
 .first-style {
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
 .edvora {

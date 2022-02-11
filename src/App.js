@@ -12,18 +12,28 @@ class App extends Component {
     const getData = async () => {
       const api = await fetch("https://assessment-edvora.herokuapp.com/");
       const data = await api.json();
-      console.log("lkj");
       this.setState({ products: [...data] });
     };
     getData();
   }
 
   render() {
+    const uniqueProducts = [
+      ...new Set(this.state.products.map((product) => product.product_name)),
+    ];
+    const uniqueStates = [
+      ...new Set(this.state.products.map((product) => product.address.state)),
+    ];
+    const uniqueCities = [
+      ...new Set(this.state.products.map((product) => product.address.city)),
+    ];
+    // console.log(uniqueStates);
+    // console.log(uniqueCities);
     return (
       <div>
-        {this.state.products}
+        {console.log(this.state.products)}
         <Title />
-        <Sidebar />
+        <Sidebar uniqueProducts={uniqueProducts} uniqueStates={uniqueStates} uniqueCities={uniqueCities} />
         <Products />
       </div>
     );
