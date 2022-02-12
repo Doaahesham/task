@@ -117,11 +117,14 @@ code {
   align-items: center;
   padding-left: 15px;
   flex-wrap: nowrap;
-  overflow: scroll;
+  overflow: auto;
+  
 }
-
+::-webkit-scrollbar{
+  display: none;
+}
 .item {
-  min-width:22%;
+  min-width: 25%;
   height: 150px;
   margin: 9px;
   top: 225px;
@@ -139,3 +142,94 @@ ul li {
   width: 70%;
   height: 31px;
 }
+.item-container {
+  width: 90%;
+  margin: auto;
+  padding-top: 5px;
+}
+
+.img-p-style {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px;
+}
+
+.productName {
+  width: 93px;
+  height: 16px;
+  /* left: 411px;
+  top: 238px; */
+  font-family: SF Pro Display;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 18px;
+  color: #ffffff;
+  margin: 0px;
+}
+.brandName {
+  width: 91px;
+  height: 14px;
+  /* left: 413px;
+  top: 264px; */
+  font-family: SF Pro Display;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+  color: rgba(255, 255, 255, 0.6);
+
+
+}
+.price {
+  width: 78.96px;
+  height: 15px;
+  /* left: 425.04px;
+top: 289px; */
+  font-family: SF Pro Display;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+  color: #ffffff;
+}
+.loc-date {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px;
+}
+.description {
+  width: 183px;
+  height: 15px;
+  /* left: 321px;
+  top: 346px; */
+  font-family: SF Pro Display;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+img{
+width: 70px;
+height: 70px;
+left: 321px;
+top: 235px;
+border-radius: 5px;
+margin: 3px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

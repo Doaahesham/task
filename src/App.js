@@ -34,7 +34,7 @@ class App extends Component {
         {console.log(this.state.products)}
         <Title />
         <Sidebar uniqueProducts={uniqueProducts} uniqueStates={uniqueStates} uniqueCities={uniqueCities} />
-        <Products />
+        <Products products={this.state.products} uniqueProducts={uniqueProducts}/>
       </div>
     );
   }
