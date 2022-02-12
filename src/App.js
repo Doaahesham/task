@@ -7,7 +7,11 @@ import Products from "./components/Products";
 class App extends Component {
   state = {
     products: [],
+    selectedprod: "",
+    selectedstate: "",
+    selectedcity: "",
   };
+
   componentDidMount() {
     const getData = async () => {
       const api = await fetch("https://assessment-edvora.herokuapp.com/");
@@ -16,6 +20,22 @@ class App extends Component {
     };
     getData();
   }
+
+  selectedProduct = () => {
+    var selectprod = document.getElementById("productsnames").value;
+    this.setState({ selectedprod: selectprod });
+    // alert(selectprod)
+  };
+  selectedState = () => {
+    var selectstat = document.getElementById("productsstates").value;
+    this.setState({ selectedstate: selectstat });
+    // alert(selectstat);
+  };
+  selectedCity = () => {
+    var selectcit = document.getElementById("productscities").value;
+    this.setState({ selectedcity: selectcit });
+    // alert(selectcit);
+  };
 
   render() {
     const uniqueProducts = [
@@ -32,9 +52,24 @@ class App extends Component {
     return (
       <div>
         {console.log(this.state.products)}
+        {console.log(this.state.selectedprod)}
+        {console.log(this.state.selectedstate)}
+        {console.log(this.state.selectedcity)}
+
         <Title />
-        <Sidebar uniqueProducts={uniqueProducts} uniqueStates={uniqueStates} uniqueCities={uniqueCities} />
-        <Products products={this.state.products} uniqueProducts={uniqueProducts}/>
+        <Sidebar
+          uniqueProducts={uniqueProducts}
+          uniqueStates={uniqueStates}
+          uniqueCities={uniqueCities}
+          selectedProduct={this.selectedProduct}
+          selectedState={this.selectedState}
+          selectedCity={this.selectedCity}
+        />
+        <Products
+          products={this.state.products}
+          uniqueProducts={uniqueProducts}
+          selectedprod={this.state.selectedprod}
+        />
       </div>
     );
   }
