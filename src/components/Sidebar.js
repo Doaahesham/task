@@ -7,7 +7,7 @@ class Sidebar extends Component {
       <div className="side">
         <div className="side-container">
           <p className="filter">Filters</p>
-          <select className="style-select first-style" id="productsnames" onChange={this.props.selectedProduct}>
+          <select className="style-select first-style" id="productsnames" onChange={this.props.selectedProduct} >
             <option>Products</option>
             {console.log(this.props.uniqueProducts)}
             {this.props.uniqueProducts.map((product, i) => {
@@ -15,7 +15,7 @@ class Sidebar extends Component {
             })}
           </select>
 
-          <select className="style-select" id="productsstates" onChange={this.props.selectedState}>
+          <select className="style-select" id="productsstates" onChange={this.props.selectedState} >
             <option>State</option>
             {console.log(this.props.uniqueStates)}
             {this.props.uniqueStates.map((state, i) => {

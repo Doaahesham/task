@@ -3,9 +3,12 @@ import ProductDetails from "./ProductDetails";
 
 class ProductSort extends Component {
   render() {
+    console.log(this.props.prodname);
+    console.log(this.props.products);
     return (
       <div className="prod-sort">
         <p className="product-name">{this.props.prodname}</p>
+
         <ul className="products-list">
           {this.props.products &&
             this.props.products

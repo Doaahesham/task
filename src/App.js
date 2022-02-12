@@ -10,13 +10,14 @@ class App extends Component {
     selectedprod: "",
     selectedstate: "",
     selectedcity: "",
+    productsToshow: [],
   };
 
   componentDidMount() {
     const getData = async () => {
       const api = await fetch("https://assessment-edvora.herokuapp.com/");
       const data = await api.json();
-      this.setState({ products: [...data] });
+      this.setState({ products: [...data], productsToshow: [...data] });
     };
     getData();
   }
@@ -24,6 +25,7 @@ class App extends Component {
   selectedProduct = () => {
     var selectprod = document.getElementById("productsnames").value;
     this.setState({ selectedprod: selectprod });
+    this.handleProducts()
     // alert(selectprod)
   };
   selectedState = () => {
@@ -36,6 +38,26 @@ class App extends Component {
     this.setState({ selectedcity: selectcit });
     // alert(selectcit);
   };
+
+  handleProducts = () => {
+    if (
+      this.state.selectedprod !== "Products" ||
+      this.state.selectedprod !== ""
+    ) {
+      this.setState({
+        productsToshow: [
+          ...this.state.products.filter((product) => {
+            return this.state.selectedprod === product.product_name;
+          }),
+        ],
+      });
+    }
+  };
+  // componentDidUpdate(prevState) {
+  //   if (this.state.selectedprod !== prevState.selectedprod) {
+  //     this.handleProducts();
+  //   }
+  // }
 
   render() {
     const uniqueProducts = [
@@ -68,7 +90,12 @@ class App extends Component {
         <Products
           products={this.state.products}
           uniqueProducts={uniqueProducts}
+          uniqueStates={uniqueStates}
+          uniqueCities={uniqueCities}
           selectedprod={this.state.selectedprod}
+          selectedstate={this.state.selectedstate}
+          selectedcity={this.state.selectedcity}
+          productsToshow={this.state.productsToshow}
         />
       </div>
     );
